@@ -5,7 +5,7 @@ import ListaDeProduto from './components/ListaDeProduto/index'
 function App() {
   return (
     <div className="App">
-        {/* <Home/> */}
+        <Home/>
         <ListaDeProduto/>
     </div>
   );
