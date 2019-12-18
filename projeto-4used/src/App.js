@@ -142,8 +142,8 @@ function App() {
   return (
     <div className="App">
         <Home/>
-        <Footer/>
         <ListaDeProduto/>
+        <Footer/>
     </div>
   );
 }
