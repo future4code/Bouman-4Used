@@ -3,7 +3,6 @@ import Home from './components/Home'
 import Footer from './components/Footer';
 import ListaDeProduto from './components/ListaDeProduto/index'
 
-
 const produtos = [
   {
     id: 1,
@@ -138,7 +137,6 @@ const produtos = [
     quantidadeItem: 1, 
   }
 ]
-
 
 function App() {
   return (
