@@ -6,7 +6,9 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { StepLabel } from '@material-ui/core';
+import Footer from '../Footer';
 
+//STYLE DO HEADER DA PAGINA PRODUTOS //
 const PageContainer = styled.div`
     background: #FFFCEF;
 `
@@ -24,12 +26,12 @@ const RightContainer = styled.div`
 `
 
 const usedFourTheme = createMuiTheme({
-   palette:{
-    primary: {main:"#F04E3E"} ,
-   secondary:{main:"#43ADA5"} 
-   } 
-   
+    palette: {
+        primary: { main: "#F04E3E" },
+        secondary: { main: "#43ADA5" }
+    }
 })
+//FIM DO STYLE DO HEADER DA PAGINA PRODUTOS //
 
 // STYLE DA BARRA DE MENU //
 const StyledNav = styled.nav`
@@ -38,7 +40,7 @@ const StyledNav = styled.nav`
 
 const StyledMenuBar = styled.div`
     background: #007d76;
-    margin: 10px;
+    margin: 20px;
     border: 1px solid black;
     border-radius: 15px;
     display: flex;
@@ -57,26 +59,26 @@ const StyledButtonNav = styled.button`
         width: 100px;
     }
 `
-// FIM DA STYLE DA BARRA DE MENU //
+// FIM DO STYLE DA BARRA DE MENU //
 
-class ListaDeProduto extends React.Component{
-    constructor(props){
+class ListaDeProduto extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
 
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <MuiThemeProvider theme={usedFourTheme}>
                 <PageContainer>
                     <HeaderContainer>
-                        <img src ={ImgLogo}></img>
-                        <img src ={TextLogo}></img>
+                        <img src={ImgLogo}></img>
+                        <img src={TextLogo}></img>
                         <RightContainer>
                             <Button color="primary" variant="contained">Anuncie</Button>
-                            <TextField id="outlined-basic" variant="outlined" placeholder="Pesquisar"/>
+                            <TextField id="outlined-basic" variant="outlined" placeholder="Pesquisar" />
                         </RightContainer>
                     </HeaderContainer>
                     <StyledNav>
@@ -89,8 +91,9 @@ class ListaDeProduto extends React.Component{
                             <StyledButtonNav className="menu">Decoração</StyledButtonNav>
                         </StyledMenuBar>
                     </StyledNav>
+                    <Footer />
                 </PageContainer>
-            </MuiThemeProvider>    
+            </MuiThemeProvider>
         )
     }
 }

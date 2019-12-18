@@ -55,7 +55,6 @@ const StyledText = styled.p`
    bottom: 0;
 `
 
-
 class Home extends Component {
    constructor(props) {
       super(props)
@@ -70,7 +69,7 @@ class Home extends Component {
                <StyledButtonAnuncio>Anunciar</StyledButtonAnuncio>
                <StyledButtonOfertas>Ver Ofertas</StyledButtonOfertas>
             </StyledDiv>
-            <StyledText>Direitos Autorais reservados</StyledText>
+            <StyledText>Direitos autorais reservados.</StyledText>
          </Background>
       )
    }

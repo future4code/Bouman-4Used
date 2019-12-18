@@ -1,7 +1,6 @@
 import React from 'react';
-import Home from './components/Home'
-import Footer from './components/Footer';
-import ListaDeProduto from './components/ListaDeProduto/index'
+import Home from './components/Home';
+import ListaDeProduto from './components/ListaDeProduto/index';
 
 const produtos = [
   {
@@ -143,7 +142,6 @@ function App() {
     <div className="App">
         <Home/>
         <ListaDeProduto/>
-        <Footer/>
     </div>
   );
 }

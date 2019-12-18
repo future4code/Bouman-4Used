@@ -10,8 +10,7 @@ import Brand from '../../imagens/FOTO.png'
 const FooterContainer = styled.div`
    display: flex;
    align-items: flex-end;
-   width: 92vw;   
-   padding: 2.5%;
+   padding: 1%;
    background-color: #43434F;
    border-radius: 15px;
    margin: 0 20px;
@@ -19,12 +18,13 @@ const FooterContainer = styled.div`
 const FooterSubcontainer = styled.section`
    display: flex;
    align-items: space-evenly;  
-   width: 20%; 
+   width: 30%; 
 `
 
 const Links = styled.span`
    padding: 0 15px;
    color: white;
+   font-weight: bold;
 `
 
 const SocialIcons = styled.div`
@@ -90,15 +90,14 @@ class Footer extends Component {
 
          <FooterContainer>
             <FooterSubcontainer>
-               <Links>Fale Conosco</Links> 
+               <Links>Fale Conosco</Links>
                <Links>Quem somos</Links>
             </FooterSubcontainer>
             <SocialIcons>
-                  <Icon src={Facebook}/>
-                  <Icon src={Twitter}/>
-                  <Icon src={Instagram}/>
-
-               </SocialIcons>
+               <Icon src={Facebook} />
+               <Icon src={Twitter} />
+               <Icon src={Instagram} />
+            </SocialIcons>
          </FooterContainer>
 
          {/* Quem Somos */}
