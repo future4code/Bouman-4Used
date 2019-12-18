@@ -140,7 +140,7 @@ const produtos = [
 function App() {
   return (
     <div className="App">
-        <Home/>   
+        <Home/>
         <ListaDeProduto/>
     </div>
   );
