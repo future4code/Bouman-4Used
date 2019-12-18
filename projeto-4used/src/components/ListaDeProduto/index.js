@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { StepLabel } from '@material-ui/core';
 import Footer from '../Footer';
+import Carrinho from '../Carrinho';
 
 //STYLE DO HEADER DA PAGINA PRODUTOS //
 const PageContainer = styled.div`
@@ -91,6 +92,7 @@ class ListaDeProduto extends React.Component {
                             <StyledButtonNav className="menu">Decoração</StyledButtonNav>
                         </StyledMenuBar>
                     </StyledNav>
+                    <Carrinho/>
                     <Footer />
                 </PageContainer>
             </MuiThemeProvider>

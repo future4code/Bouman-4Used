@@ -82,7 +82,7 @@ const produtos = [
 ] 
 
 const ButtonDiv = styled.div`
-    text-align: right
+    text-align: right;
 `
 
 let subTotal = 0;
