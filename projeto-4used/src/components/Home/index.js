@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Brand from '../../imagens/FOTO.png'
-import Button from '@material-ui/core/Button'
 import styled from 'styled-components';
-import { createMuiTheme } from '@material-ui/core';
 
 const Background = styled.div`
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: center;
    align-items: center;
    background: #FFFCEF;
    height: 100vh;
@@ -15,20 +13,48 @@ const Background = styled.div`
 `
 
 const Logo = styled.img`
-   margin-top: 80px;
+   margin-top: 30px;
+   width: 250px;
+   height: auto;
 `
 
 const Slogan = styled.h3`
-   padding-bottom: 50px;
+   margin: 50px 0 50px 0;
+   font-style: italic;
 `
 
-const StyledButton = styled(Button)`
-   width: 200px;
+const StyledDiv = styled.div`
+   display: flex;
+   justify-content: space-between;
+   width: 300px;
 `
 
-const theme = createMuiTheme({
-   
-})
+const StyledButtonAnuncio = styled.button`
+   background: #43434F;
+   color: white;
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: 0 25px;
+   font-weight: bold;
+   margin: 50px 0;
+`
+
+const StyledButtonOfertas = styled.button`
+   background: #43434F;
+   color: white;
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: 20px;
+   font-weight: bold;
+   margin: 50px 0;
+`
+
+const StyledText = styled.p`
+   font-weight: bold;
+   position: fixed;
+   bottom: 0;
+`
+
 
 class Home extends Component {
    constructor(props) {
@@ -36,14 +62,15 @@ class Home extends Component {
    }
 
    render() {
-      return (         
+      return (
          <Background>
-            <Logo src={Brand}/>
+            <Logo src={Brand} />
             <Slogan>Seu site de compras e vendas preferido!</Slogan>
-            <div>
-               <StyledButton variant="contained" color="primary">Anunciar</StyledButton>               
-               <StyledButton variant="contained" color="primary">Ver Ofertas</StyledButton>
-            </div>            
+            <StyledDiv>
+               <StyledButtonAnuncio>Anunciar</StyledButtonAnuncio>
+               <StyledButtonOfertas>Ver Ofertas</StyledButtonOfertas>
+            </StyledDiv>
+            <StyledText>Direitos Autorais reservados</StyledText>
          </Background>
       )
    }
