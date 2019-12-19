@@ -67,11 +67,21 @@ class CriarAnuncio extends Component {
         super(props)
     }
 
+    visitarListaDeProduto = () => {
+        this.props.visitarListaDeProduto()
+    }
+
     render() {
         return (
             <MuiThemeProvider theme={usedFourTheme}>
                 <BotaoContainer>
-                    <Botao color="primary" variant="contained">Ver Ofertas</Botao>
+                    <Botao 
+                        color="primary" 
+                        variant="contained"
+                        onClick={this.visitarListaDeProduto}
+                    >
+                        Ver Ofertas
+                    </Botao>
                 </BotaoContainer>
                 <HeaderContainer>
                     <LogoContainer>
