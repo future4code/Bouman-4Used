@@ -8,7 +8,9 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import { StepLabel } from '@material-ui/core';
 import Footer from '../Footer';
 import Carrinho from '../Carrinho';
+import Produto from '../Produto/index'
 import Filters from '../Filters';
+
 
 //STYLE DO HEADER DA PAGINA PRODUTOS //
 const PageContainer = styled.div`
@@ -63,6 +65,19 @@ const StyledButtonNav = styled.button`
 `
 // FIM DO STYLE DA BARRA DE MENU //
 
+//INICIO DO CONTAINER DO PRODUTO//
+
+const ProdutoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 13px;
+`;
+
+// FIM DO STYLE DO CONTAINER //
+
 class ListaDeProduto extends React.Component {
     constructor(props) {
         super(props)
@@ -72,6 +87,7 @@ class ListaDeProduto extends React.Component {
     }
 
     render() {
+        
         return (
             <MuiThemeProvider theme={usedFourTheme}>
                 <PageContainer>
@@ -93,10 +109,18 @@ class ListaDeProduto extends React.Component {
                             <StyledButtonNav className="menu">Decoração</StyledButtonNav>
                         </StyledMenuBar>
                     </StyledNav>
-                    <div>
+                  <div>
                         <Filters/>
+                        <ProdutoGrid>
+                            {this.props.listaDeProdutos.map((cadaProduto) =>{
+                                return(
+                                    <Produto fotos={cadaProduto.fotos} nome={cadaProduto.nome} preco={cadaProduto.preco}/>
+                                )
+                            })}
+                        </ProdutoGrid>
                         <Carrinho/>
                     </div>                  
+
                     <Footer />
                 </PageContainer>
             </MuiThemeProvider>
