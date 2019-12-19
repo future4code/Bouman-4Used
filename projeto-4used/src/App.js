@@ -1,6 +1,8 @@
 import React from 'react';
 import Home from './components/Home';
 import ListaDeProduto from './components/ListaDeProduto/index';
+import CriarAnuncio from './components/CriarAnuncio';
+import styled from 'styled-components'
 
 const produtos = [
   {
@@ -137,11 +139,13 @@ const produtos = [
   }
 ]
 
+
 function App() {
   return (
     <div className="App">
         <Home/>
         <ListaDeProduto listaDeProdutos = {produtos}/>
+        <CriarAnuncio/>
     </div>
   );
 }
