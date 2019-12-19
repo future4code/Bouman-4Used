@@ -4,9 +4,11 @@ import Facebook from '../../imagens/facebookIcon.svg'
 import Instagram from '../../imagens/instagramIcon.svg'
 import Twitter from '../../imagens/twitterIcon.svg'
 import Brand from '../../imagens/FOTO.png'
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button'
 
 
-
+         // {/* Footer Styled */}
 const FooterContainer = styled.div`
    display: flex;
    align-items: flex-end;
@@ -38,7 +40,9 @@ const Icon = styled.img`
    margin: 0 20px;
 `
 
-const WhoAreWe = styled.div`
+// {/* Quem Somos Styled */}
+
+const WhoAreWe = styled(Dialog)`
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -79,29 +83,80 @@ display: flex;
 flex-direction: column;
 `
 
+// {/* Fale Conosco Styled */}
+
+const ContactUs = styled(Dialog)`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items:center;
+   background-color: #FFFCEF;
+   width: 50%;
+   margin: 0 auto;
+
+`
+const FormContact = styled.form`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   background-color: #FFFCEF;
+
+
+` 
+const FormContainer = styled.div`
+   margin: 50px;
+   background-color: #FFFCEF;
+
+`
+const ContactBotao = styled(Button)`
+    background-color: #FFFCEF;
+`
+
+
+
+
 class Footer extends Component {
    constructor(props) {
-      super(props)
+      super(props);
+      this.state ={
+         openWhoAreWe: false,
+         openContact: false,
+      }
    }
-
+   whoAreWeClickOpen = () => {
+      this.setState({openWhoAreWe: true});
+      };
+      
+   whoAreWeClose = () => {
+      this.setState({openWhoAreWe: false});
+   };
+   
+   contactClickOpen = () => {
+      this.setState({openContact: true});
+   };
+   
+   contactClose = () => {
+   this.setState({openContact: false});
+   };
+   
    render() {
       return (
          <div>
 
          <FooterContainer>
             <FooterSubcontainer>
-               <Links>Fale Conosco</Links>
-               <Links>Quem somos</Links>
+               <Links onClick={this.contactClickOpen}>Fale Conosco</Links>
+               <Links onClick={this.whoAreWeClickOpen}>Quem Somos</Links>
             </FooterSubcontainer>
             <SocialIcons>
-               <Icon src={Facebook} />
-               <Icon src={Twitter} />
-               <Icon src={Instagram} />
+               <a href="https://www.facebook.com/"><Icon src={Facebook} /></a>
+               <a href="https://twitter.com/"><Icon src={Twitter} /></a>
+               <a href="https://www.instagram.com/"><Icon src={Instagram} /></a>
             </SocialIcons>
          </FooterContainer>
 
          {/* Quem Somos */}
-         <WhoAreWe>
+        <WhoAreWe open={this.state.openWhoAreWe} onClose={this.whoAreWeClose}>
                <Logo src={Brand}/>
                <h2>Missão:</h2>
                <Paragraphs>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum </Paragraphs>
@@ -141,6 +196,27 @@ class Footer extends Component {
                
          </WhoAreWe> 
 
+         {/* Fale Conosco*/}
+      <ContactUs open={this.state.openContact} onClose={this.contactClose}>
+            <FormContainer>
+            <Logo src={Brand}/>
+            <FormContact>
+               <label>Nome: </label>
+               <input type="text" ></input>
+               <label>Email: </label>
+               <input type="email"></input>
+               <label>Assunto: </label>
+               <select>
+                  <option>Sugestões</option>
+                  <option>Reclamação</option>
+                  <option>Outros</option>
+               </select>
+               <label>Mensagem: </label>
+               <textarea></textarea>
+               <ContactBotao color="primary" variant="contained">Enviar</ContactBotao>
+            </FormContact>
+            </FormContainer>
+      </ContactUs>
 
          </div>
          
