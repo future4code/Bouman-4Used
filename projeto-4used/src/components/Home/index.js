@@ -58,14 +58,22 @@ class Home extends Component {
       super(props)
    }
 
+   visitarListaDeProduto = () => {
+      this.props.visitarListaDeProduto()
+   }
+
+   visitarCriarAnuncio = ( ) => {
+      this.props.visitarCriarAnuncio()
+   }
+
    render() {
       return (
          <Background>
             <Logo src={Brand} />
             <Slogan>Seu site de compras e vendas preferido!</Slogan>
             <StyledDiv>
-               <StyledButtonAnuncio>Anunciar</StyledButtonAnuncio>
-               <StyledButtonOfertas>Ver Ofertas</StyledButtonOfertas>
+               <StyledButtonAnuncio onClick={this.visitarCriarAnuncio}>Anunciar</StyledButtonAnuncio>
+               <StyledButtonOfertas onClick={this.visitarListaDeProduto}>Ver Ofertas</StyledButtonOfertas>
             </StyledDiv>
             <StyledText>Direitos autorais reservados.</StyledText>
          </Background>

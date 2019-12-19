@@ -93,6 +93,10 @@ class ListaDeProduto extends React.Component {
         }
     }
 
+    visitarCriarAnuncio = () => {
+        this.props.visitarCriarAnuncio()
+    }
+
     render() {
         
         return (
@@ -102,7 +106,13 @@ class ListaDeProduto extends React.Component {
                         <img src={ImgLogo}></img>
                         <img src={TextLogo}></img>
                         <RightContainer>
-                            <Button color="primary" variant="contained">Anuncie</Button>
+                            <Button 
+                                color="primary" 
+                                variant="contained"
+                                onClick={this.visitarCriarAnuncio}
+                            >
+                                Anuncie
+                            </Button>
                             <TextField id="outlined-basic" variant="outlined" placeholder="Pesquisar" />
                         </RightContainer>
                     </HeaderContainer>
