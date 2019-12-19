@@ -9,6 +9,8 @@ import { StepLabel } from '@material-ui/core';
 import Footer from '../Footer';
 import Carrinho from '../Carrinho';
 import Produto from '../Produto/index'
+import Filters from '../Filters';
+
 
 //STYLE DO HEADER DA PAGINA PRODUTOS //
 const PageContainer = styled.div`
@@ -107,6 +109,8 @@ class ListaDeProduto extends React.Component {
                             <StyledButtonNav className="menu">Decoração</StyledButtonNav>
                         </StyledMenuBar>
                     </StyledNav>
+                  <div>
+                        <Filters/>
                         <ProdutoGrid>
                             {this.props.listaDeProdutos.map((cadaProduto) =>{
                                 return(
@@ -114,10 +118,9 @@ class ListaDeProduto extends React.Component {
                                 )
                             })}
                         </ProdutoGrid>
-                        
-                    
-                    
-                    <Carrinho/>
+                        <Carrinho/>
+                    </div>                  
+
                     <Footer />
                 </PageContainer>
             </MuiThemeProvider>
