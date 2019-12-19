@@ -69,14 +69,21 @@ const StyledButtonNav = styled.button`
 
 const ProdutoGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   justify-items: center;
   gap: 10px;
   margin-top: 13px;
-`;
+`
 
 // FIM DO STYLE DO CONTAINER //
+
+// STYLE DO CONTAINER QUE TEM O FILTROS-GRID-CARRINHO //
+const ContainerBodyProduto = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+// FIM DO STYLE DO CONTAINER QUE TEM O FILTROS-GRID-CARRINHO //
 
 class ListaDeProduto extends React.Component {
     constructor(props) {
@@ -109,7 +116,7 @@ class ListaDeProduto extends React.Component {
                             <StyledButtonNav className="menu">Decoração</StyledButtonNav>
                         </StyledMenuBar>
                     </StyledNav>
-                  <div>
+                    <ContainerBodyProduto>
                         <Filters/>
                         <ProdutoGrid>
                             {this.props.listaDeProdutos.map((cadaProduto) =>{
@@ -119,7 +126,7 @@ class ListaDeProduto extends React.Component {
                             })}
                         </ProdutoGrid>
                         <Carrinho/>
-                    </div>                  
+                    </ContainerBodyProduto>                  
 
                     <Footer />
                 </PageContainer>

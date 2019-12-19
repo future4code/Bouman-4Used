@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem'
-import InputLabel from '@material-ui/core/InputLabel'
 
 //STYLED DOS FILTROS MAX E MIN //
 const StyledH2 = styled.h2`
@@ -11,8 +9,8 @@ const StyledH2 = styled.h2`
 `
 
 const StyledFormFilter = styled.form`
-   margin-left: 30px;
-   margin-top: 10px;
+   margin-left: 15px;
+   margin: 10px 15px;
    width: 200px;
 `
 
@@ -25,6 +23,11 @@ const StyledFilterSeletor = styled(Select)`
 class Filters extends Component {
    constructor(props) {
       super(props)
+
+      this.state = {
+         minValue: '',
+         maxValue: '',
+      }
    }
 
    render() {
@@ -38,31 +41,27 @@ class Filters extends Component {
                   label="Valor Mínimo"
                   type="number"
                   variant="outlined"
-                  color="primary"
-                  InputLabelProps={{
-                  shrink: true,
-                  }}
+                  color="primary"          
                />
             </StyledFormFilter>
-
+            
             <StyledFormFilter>
                <TextField
                   id="standard-number"
                   label="Valor Máximo"
                   type="number"
                   variant="outlined"
-                  color="primary"
-                  InputLabelProps={{
-                  shrink: true,
-                  }}
+                  color="primary"                 
                />
+            </StyledFormFilter>
 
-               <StyledFilterSeletor>
-                  <MenuItem value="nome">Nome</MenuItem>
-                  <MenuItem value="preço">Preço</MenuItem>
-                  <MenuItem value="categoria">Categoria</MenuItem>
+            <StyledFormFilter>
+               <StyledFilterSeletor native defaultValue='selecione'>
+                  <option value="selecione">Selecione uma opção</option>
+                  <option value="Nome">Nome</option>
+                  <option value="Preço">Preço</option>
+                  <option value="Categoria">Categoria</option>
                </StyledFilterSeletor>
-               
             </StyledFormFilter>
          </div>
       )

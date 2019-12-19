@@ -19,7 +19,7 @@ const Logo = styled.img`
 `
 
 const Slogan = styled.h3`
-   margin: 50px 0 50px 0;
+   margin: 50px 0;
    font-style: italic;
 `
 
@@ -51,8 +51,6 @@ const StyledButtonOfertas = styled.button`
 
 const StyledText = styled.p`
    font-weight: bold;
-   position: fixed;
-   bottom: 0;
 `
 
 class Home extends Component {
