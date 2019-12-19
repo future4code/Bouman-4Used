@@ -6,9 +6,9 @@ const produtos = [
   {
     id: 1,
     categoria: "Eletrônicos",
-    nome: "Smartphone Samsung Galaxy A50",
+    nome: "Samsung Galaxy A50",
     descricao: "Smartphone Samsung Galaxy A50 128GB Azul 4G - 4GB RAM Tela 6,4” Câm. Tripla + Câm. Selfie 25MP",
-    fotos: "https://images.colombo.com.br/produtos/909188/909188_SamsungA50Preto0_z.jpg",
+    fotos: "https://images.samsung.com/is/image/samsung/br-galaxy-a50-a505-sm-a505gzwszto-frontwhite-172973431?$PD_GALLERY_L_JPG$",
     preco: 10.00,
     metodoDePagamento: "Cartão de Crédito",
     parcelas: 10, 
@@ -28,7 +28,7 @@ const produtos = [
   {
     id: 3,
     categoria: "Roupas",
-    nome: "Vestido FiveBlu Curto Estampado Azul",
+    nome: "Vestido FiveBlu",
     descricao: "Curto Estampado Azul",
     fotos: "https://static.dafiti.com.br/p/FiveBlu-Vestido-FiveBlu-Curto-Estampado-Azul-3637-8956414-1-zoom.jpg",
     preco: 30.00,
@@ -39,7 +39,7 @@ const produtos = [
   {
     id: 4,
     categoria: "Roupas",
-    nome: "Camiseta masculina esportiva Ace",
+    nome: "Camiseta masculina",
     descricao: "Gola careca manga curta azul marinho",
     fotos: "https://cea.vteximg.com.br/arquivos/ids/10604851-1000-1200/Camiseta-Masculina-Esportiva-Ace-Gola-Careca-Manga-Curta-Azul-Marinho-8226483-Azul_Marinho_1.jpg?v=637055592205870000" ,
     preco: 40.00,
@@ -94,7 +94,7 @@ const produtos = [
   {
     id: 9,
     categoria: "Móveis",
-    nome: "Sofá 3 Lugares New Passion Couro Sintético Preto",
+    nome: "Sofá 3 Lugares",
     descricao: "O Sofá New Passion vai conquistar o seu coração. Dono de um design moderno de formas arredondadas, a peça, que é confeccionada com corino, conta com detalhes em capitonê e desenho de linhas aparentes vão agregar muito mais charme e sofisticação para a sua decoração.",
     fotos: "https://staticmobly.akamaized.net/p/LinoForte-SofC3A1-3-Lugares-New-Passion-Couro-SintC3A9tico-Preto-3734-426484-1-zoom.jpg",
     preco: 90.00,
@@ -105,7 +105,7 @@ const produtos = [
   {
     id: 10,
     categoria: "Móveis",
-    nome: "Cama Box Queen com Colchão Barcelona",
+    nome: "Cama Box Queen",
     descricao: "Ele combina a base estruturada em madeira maciça - o que reforça o uso diário - com colchão de molejo superlastic e uma camada extra de conforto em espuma D26.",
     fotos: "https://staticmobly.akamaized.net/p/Anjos-ColchC3B5es-Cama-Box-Queen-com-ColchC3A3o-Barcelona-D26-Cinza-1149-305874-1-zoom.jpg" ,
     preco: 100.00,
@@ -116,7 +116,7 @@ const produtos = [
   {
     id: 11,
     categoria: "Decoração",
-    nome: "Abajur Bola Luna ",
+    nome: "Abajur Bola Luna",
     descricao: "Não há nada como poder relaxar em um ambiente à meia-luz, seja lendo um livro, vendo um filme ou conversando com alguém querido.",
     fotos: "https://staticmobly.akamaized.net/p/CerC3A2mica-Ana-Maria-Abajur-Bola-Luna-com-AlumC3ADnio-Branco-Perola-Brilho-9436-995361-1-zoom.jpg" ,
     preco: 110.00,
@@ -127,7 +127,7 @@ const produtos = [
   {
     id: 12,
     categoria: "Decoração",
-    nome: "Papel de Parede Adesivo Poas Treliça de Corações",
+    nome: "Papel de Parede Adesivo",
     descricao: "Não há nada como poder relaxar em um ambiente à meia-luz, seja lendo um livro, vendo um filme ou conversando com alguém querido.",
     fotos: "https://staticmobly.akamaized.net/p/EuColo-Papel-de-Parede-Adesivo-Poas-TreliC3A7a-de-CoraC3A7C3B5es-290-x-50-cm-6407-122485-1-zoom.jpg" ,
     preco: 120.00,
@@ -141,7 +141,7 @@ function App() {
   return (
     <div className="App">
         <Home/>
-        <ListaDeProduto/>
+        <ListaDeProduto listaDeProdutos = {produtos}/>
     </div>
   );
 }
