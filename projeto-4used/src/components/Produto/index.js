@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const ProdutoContainer = styled.div`
   width: 40vw;
   height: 40vh;
-  border: 1px dotted orange;
+  border: 1px dotted #FCCA64;
   width : 200px;
   display: flex;
   flex-direction: column;
@@ -39,12 +39,12 @@ const ButtonAdicionarProduto = styled.button`
   align-self: flex-end;
   width: 100%;
   height: 75px;
-  background-color: black;
+  background-color: #43434F;
   color: white;
   outline: 0;
   border: 0;
   :hover {
-    background-color: orange;
+    background-color: #FCCA64;
     color: black;
   }
 `;
