@@ -30,6 +30,10 @@ export default class DescricaoProduto extends React.Component {
         }
     }
 
+    adicionarAoCarrinho = () => {
+        this.props.adicionarAoCarrinho()
+    }
+
     render () {
         return (
             <Div>               
@@ -71,7 +75,7 @@ export default class DescricaoProduto extends React.Component {
                     </ListItem> 
                     <Divider/> 
                 </List> 
-                <Button variant="contained"> 
+                <Button variant="contained" onClick={this.adicionarAoCarrinho}> 
                     <AddShoppingCartIcon />
                 </Button>                  
             </Div>

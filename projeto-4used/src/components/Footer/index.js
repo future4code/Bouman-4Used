@@ -152,9 +152,9 @@ class Footer extends Component {
         <WhoAreWe open={this.state.openWhoAreWe} onClose={this.whoAreWeClose}>
                <Logo src={Brand}/>
                <h2>Missão:</h2>
-               <Paragraphs>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum </Paragraphs>
+               <Paragraphs>Temos como missão oferecer o melhor serviço de compra e venda de produtos usados aos nossos usuários. </Paragraphs>
                <h2>Visão</h2>
-               <Paragraphs>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum </Paragraphs>
+               <Paragraphs>Nossa visão é tornarmos o melhor e-commerce na área de marketplace, servindo como referência nesse serviço. </Paragraphs>
 
                <h2>Equipe</h2>
             

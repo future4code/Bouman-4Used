@@ -96,9 +96,10 @@ class ListaDeProduto extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            produtoDestaque: ""   
+            produtoDestaque: "" 
         }
     }
+
 
     visitarCriarAnuncio = () => {
         this.props.visitarCriarAnuncio()
@@ -112,7 +113,16 @@ class ListaDeProduto extends React.Component {
             }
         }
         this.setState({produtoDestaque: produtoDesejado })
+    }
 
+    adicionarAoCarrinho = () => {
+        this.props.adicionarAoCarrinho(this.state.produtoDestaque.id)
+    }
+
+    deletarProduto = (id) => {
+        // console.log(id)
+        this.props.deletarProduto(id)
+    }
 
 
     render() {
@@ -146,8 +156,8 @@ class ListaDeProduto extends React.Component {
                     </StyledNav>
                     <ContainerBodyProduto>
                         <ContainerLeft>
-                            <Filters />
-                            {this.state.produtoDestaque ?<DescricaoProduto produtoDestaque={this.state.produtoDestaque} /> : "Nenhum Produto Selecionado"}
+                            <Filters produtos={this.props.produtos}/>
+                            {this.state.produtoDestaque ?<DescricaoProduto produtoDestaque={this.state.produtoDestaque} adicionarAoCarrinho={this.adicionarAoCarrinho}/> : "Nenhum Produto Selecionado"}
                         </ContainerLeft>
 
                         <ProdutoGrid>
@@ -157,7 +167,7 @@ class ListaDeProduto extends React.Component {
                                 )
                             })}
                         </ProdutoGrid>
-                        <Carrinho />
+                        <Carrinho produtos={this.props.produtos} deletarProduto = {this.deletarProduto}/>
                     </ContainerBodyProduto>
 
                     <Footer />

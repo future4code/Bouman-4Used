@@ -172,8 +172,12 @@ class App extends React.Component {
     const request = axios.get(baseURL);
     request
       .then(response => {
-        console.log(response.data.products) ;
-        this.setState({produtos: response.data.products})
+        const quantidadesDeProduto = response.data.products.map((produto) => {
+          return {...produto, quantidade: 0}
+      } )
+        this.setState({produtos: quantidadesDeProduto})
+
+
       }).catch(error => {
         alert(error.message + "Não retornou")
       })
@@ -181,7 +185,30 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchProduct();
-  }   
+  }
+  
+  adicionarAoCarrinho = (id) => {
+    
+    const produtos = this.state.produtos.map((produto) => {
+      if (id === produto.id) {
+        produto.quantidade += 1
+      } 
+
+      return produto
+    })
+    this.setState({produtos: produtos})
+  }
+
+  deletarProduto = (id) => {
+    const produtos = this.state.produtos.map((produto) => {
+      if (id === produto.id) {
+        produto.quantidade = 0
+      } 
+
+      return produto
+    })
+    this.setState({produtos: produtos})
+  }
 
 
 
@@ -199,6 +226,8 @@ class App extends React.Component {
             listaDeProdutos={produtos} 
             visitarCriarAnuncio={this.visitarCriarAnuncio}
             produtos = {this.state.produtos}
+            adicionarAoCarrinho= {this.adicionarAoCarrinho}
+            deletarProduto={this.deletarProduto}
 
           /> 
         )}
