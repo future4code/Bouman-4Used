@@ -6,6 +6,10 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import Footer from '../Footer/index'
+import axios from "axios";
+
+
+const baseURL = "https://us-central1-future-apis.cloudfunctions.net/fourUsed/products"
 
 const usedFourTheme = createMuiTheme({
     palette: {
@@ -64,12 +68,69 @@ const TituloAnuncie = styled.h2`
 
 class CriarAnuncio extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            nameProduct: "",
+            descriptionProduct: "",
+            priceProduct: 0,
+            paymentMethodProduct: "",
+            categoryProduct:"",
+            photosProduct:[],
+            installmentsProduct:0,
+        }
     }
 
     visitarListaDeProduto = () => {
         this.props.visitarListaDeProduto()
     }
+
+    createNewUser = () => {
+        const url = `${baseURL}`;
+    
+        const data = {
+            name: this.state.nameProduct,
+            description: this.state.descriptionProduct,
+            price: this.state.priceProduct,
+            paymentMethod: this.state.paymentMethodProduct,
+            category: this.state.categoryProduct,
+            photos: this.state.photosProduct,
+            installments: this.state.installmentsProduct
+            
+        };
+        console.log(data)
+        console.log(this.state.photosProduct)
+
+        const request = axios.post(url, data);
+        request
+          .then(response => {
+            alert("criada com sucesso") ;
+          }).catch(error => {
+            alert("Não foi criada")
+          })
+    }
+    onChangeName = event => {
+        this.setState({nameProduct: event.target.value});
+      };
+    onChangeDescription = event => {
+        this.setState({descriptionProduct: event.target.value});
+      };
+    onChangePrice = event => {
+        this.setState({priceProduct: event.target.value});
+      };
+    onChangeMethod = event => {
+        this.setState({paymentMethodProduct: event.target.value});
+      };
+    onChangeCategory = event => {
+        this.setState({categoryProduct: event.target.value});
+      };
+    onChangePhoto = event => {
+        this.setState({photosProduct: [event.target.value]});
+      };
+    onChangeInstallments = event => {
+        this.setState({installmentsProduct: event.target.value});
+      }; 
+
+
 
     render() {
         return (
@@ -90,7 +151,7 @@ class CriarAnuncio extends Component {
                 </HeaderContainer>
                 <TituloAnuncie>Anuncie Aqui:</TituloAnuncie>
                 <ContainerDeInputs>
-                    <SelectInput native defaultValue="selecione">
+                    <SelectInput native defaultValue="selecione" value={this.state.categoryProduct} onChange={this.onChangeCategory} >
                         <option value="selecione">Selecione uma Categoria</option>
                         <option value="eletronico">Eletronicos</option>
                         <option value="roupas">Roupas</option>
@@ -99,34 +160,34 @@ class CriarAnuncio extends Component {
                         <option value="moveis">Móveis</option>
                         <option value="decoracao">Decoração</option>
                     </SelectInput>
-                    <Input id="outlined-basic" variant="outlined" placeholder="Nome"></Input>
-                    <Input id="standard-multiline-flexible" variant="outlined" placeholder="Descrição" multiline rowsMax="4"></Input>
-                    <Input id="outlined-basic" variant="outlined" placeholder="Url da Foto"></Input>
-                    <Input id="outlined-basic" variant="outlined" placeholder="Preço" type="number"></Input>
+                    <Input id="outlined-basic" variant="outlined" placeholder="Nome" value={this.state.nameProduct} onChange={this.onChangeName}></Input>
+                    <Input id="standard-multiline-flexible" variant="outlined" placeholder="Descrição" multiline rowsMax="4" value={this.state.descriptionProduct} onChange={this.onChangeDescription}></Input>
+                    <Input id="outlined-basic" variant="outlined" placeholder="Url da Foto" value={this.state.photosProduct} onChange={this.onChangePhoto}></Input>
+                    <Input id="outlined-basic" variant="outlined" placeholder="Preço" type="number" value={this.state.priceProduct} onChange={this.onChangePrice}></Input>
 
-                    <SelectInput native defaultValue="selecione">
+                    <SelectInput native defaultValue="selecione" value={this.state.paymentMethodProduct} onChange={this.onChangeMethod}>
                         <option value="selecione">Método de Pagamento</option>
                         <option value="boleto">Boleto</option>
                         <option value="cartao">Cartão de Crédito</option>
 
                     </SelectInput>
 
-                    <SelectInput native defaultValue="selecione">
+                    <SelectInput native defaultValue="selecione" value={this.state.installmentsProduct} onChange={this.onChangeInstallments}>
                         <option value="selecione">Parcelas</option>
-                        <option value="1">1x</option>
-                        <option value="2">2x</option>
-                        <option value="3">3x</option>
-                        <option value="4">4x</option>
-                        <option value="5">5x</option>
-                        <option value="6">6x</option>
-                        <option value="7">7x</option>
-                        <option value="8">8x</option>
-                        <option value="9">9x</option>
-                        <option value="10">10x</option>
-                        <option value="11">11x</option>
-                        <option value="12">12x</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </SelectInput>
-                    <Botao color="primary" variant="contained">Salvar Produto</Botao>
+                    <Botao color="primary" variant="contained" onClick={this.createNewUser} >Salvar Produto</Botao>
                 </ContainerDeInputs>
                 <Footer />
             </MuiThemeProvider>
