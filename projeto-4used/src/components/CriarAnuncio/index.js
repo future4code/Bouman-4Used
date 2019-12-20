@@ -84,7 +84,7 @@ class CriarAnuncio extends Component {
         this.props.visitarListaDeProduto()
     }
 
-    createNewUser = () => {
+    createNewProduct = () => {
         const url = `${baseURL}`;
     
         const data = {
@@ -97,8 +97,6 @@ class CriarAnuncio extends Component {
             installments: this.state.installmentsProduct
             
         };
-        console.log(data)
-        console.log(this.state.photosProduct)
 
         const request = axios.post(url, data);
         request
@@ -107,7 +105,11 @@ class CriarAnuncio extends Component {
           }).catch(error => {
             alert("Não foi criada")
           })
+
+        this.props.produtos()
+    
     }
+
     onChangeName = event => {
         this.setState({nameProduct: event.target.value});
       };
@@ -187,7 +189,7 @@ class CriarAnuncio extends Component {
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </SelectInput>
-                    <Botao color="primary" variant="contained" onClick={this.createNewUser} >Salvar Produto</Botao>
+                    <Botao color="primary" variant="contained" onClick={this.createNewProduct} >Salvar Produto</Botao>
                 </ContainerDeInputs>
                 <Footer />
             </MuiThemeProvider>
