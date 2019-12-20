@@ -115,7 +115,14 @@ class CriarAnuncio extends Component {
             alert("Não foi criada")
           })
 
-    
+          this.setState({ 
+          nameProduct: "",
+          descriptionProduct: "",
+          priceProduct: 0,
+          paymentMethodProduct: "",
+          categoryProduct:"",
+          photosProduct:[],
+          installmentsProduct:0,})
     }
 
     onChangeName = event => {
