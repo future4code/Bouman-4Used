@@ -15,17 +15,17 @@ const ProdutoContainer = styled.div`
   margin: 5px;
 `;
 
-const ProdutoImage = styled.img `
+const ProdutoImage = styled.img`
   width: 100%;
   height: 130px;
 `;
 
-const PNome = styled.p `
+const PNome = styled.p`
   align-self: center;
   margin-top: 10px;
 `;
 
-const PValor = styled.p `
+const PValor = styled.p`
   margin: 15px 0px 10px 5px;
 `;
 
@@ -50,30 +50,32 @@ const ButtonAdicionarProduto = styled.button`
 `;
 
 
-class Produto extends React.Component{
-    constructor(props){
-        super(props)
+class Produto extends React.Component {
+  constructor(props) {
+    super(props)
 
-        this.state={
+    this.state = {
 
-        }
     }
+  }
 
-    render(){
-        return(
-        <ProdutoContainer>
-            
-            
-                        
-                <ProdutoImage src={this.props.fotos}/>
-                <PNome>{this.props.nome}</PNome>
-                <PValor>R$ {this.props.preco},00</PValor>
-                <ProdutoFooterContainer>
-                <ButtonAdicionarProduto>Adicionar Item</ButtonAdicionarProduto>
-                </ProdutoFooterContainer>
-        </ProdutoContainer>
-        )
-    }
+  destacarProduto = (e) =>{
+    console.log(e.target.id)
+    this.props.destacarProduto(e.target.id)
+  }
+
+  render() {
+    return (
+      <ProdutoContainer>
+        <ProdutoImage src={this.props.fotos} />
+        <PNome>{this.props.nome}</PNome>
+        <PValor>R$ {this.props.preco}</PValor>
+        <ProdutoFooterContainer>
+          <ButtonAdicionarProduto id={this.props.id} onClick={this.destacarProduto}>Ver Descrição</ButtonAdicionarProduto>
+        </ProdutoFooterContainer>
+      </ProdutoContainer>
+    )
+  }
 }
 
 export default Produto
