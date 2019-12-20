@@ -7,7 +7,6 @@ import Brand from '../../imagens/FOTO.png'
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button'
 
-
          // {/* Footer Styled */}
 const FooterContainer = styled.div`
    display: flex;
@@ -70,7 +69,6 @@ const Paragraphs = styled.p`
    width: 200px;
    height:200px;
    margin: 20px 0;
-
 `
 
 const StaffContainer = styled.div`
@@ -93,15 +91,12 @@ const ContactUs = styled(Dialog)`
    background-color: #FFFCEF;
    width: 50%;
    margin: 0 auto;
-
 `
 const FormContact = styled.form`
    display: flex;
    flex-direction: column;
    justify-content: center;
    background-color: #FFFCEF;
-
-
 ` 
 const FormContainer = styled.div`
    margin: 50px;
@@ -111,9 +106,6 @@ const FormContainer = styled.div`
 const ContactBotao = styled(Button)`
     background-color: #FFFCEF;
 `
-
-
-
 
 class Footer extends Component {
    constructor(props) {
@@ -200,21 +192,21 @@ class Footer extends Component {
       <ContactUs open={this.state.openContact} onClose={this.contactClose}>
             <FormContainer>
             <Logo src={Brand}/>
-            <FormContact>
-               <label>Nome: </label>
-               <input type="text" ></input>
-               <label>Email: </label>
-               <input type="email"></input>
-               <label>Assunto: </label>
-               <select>
-                  <option>Sugestões</option>
-                  <option>Reclamação</option>
-                  <option>Outros</option>
-               </select>
-               <label>Mensagem: </label>
-               <textarea></textarea>
-               <ContactBotao color="primary" variant="contained">Enviar</ContactBotao>
-            </FormContact>
+               <FormContact>
+                  <label>Nome: </label>
+                  <input type="text" ></input>
+                  <label>Email: </label>
+                  <input type="email"></input>
+                  <label>Assunto: </label>
+                  <select>
+                     <option>Sugestões</option>
+                     <option>Reclamação</option>
+                     <option>Outros</option>
+                  </select>
+                  <label>Mensagem: </label>
+                  <textarea></textarea>
+                  <ContactBotao color="primary" variant="contained">Enviar</ContactBotao>
+               </FormContact>
             </FormContainer>
       </ContactUs>
 
