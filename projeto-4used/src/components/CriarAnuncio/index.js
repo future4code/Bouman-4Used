@@ -34,11 +34,9 @@ const LogoContainer = styled.div`
 
 const Botao = styled(Button)`
     background-color: #FFFCEF;
-
 `
 
-const Input = styled(TextField)`
-    
+const Input = styled(TextField)`    
     width: 500px;
 `
 
@@ -50,16 +48,25 @@ const ContainerDeInputs = styled.div`
     background-color: #FFFCEF;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 10px;
+    padding: 20px;
     justify-items: center;
     grid-gap: 10px;
+`
+
+const StyledLogo = styled.img`
+    width: 200px;
 `
 
 const TituloAnuncie = styled.h2`
     text-align: center;
     background-color: #FFFCEF;
     margin: 0;
-    padding: 20px ;
+    padding: 20px 0;
+`
+
+const ContainerFooter = styled.div`    
+    background-color: #FFFCEF;
+    padding: 200px 0 20px 0;
 `
 
 class CriarAnuncio extends Component {
@@ -85,7 +92,7 @@ class CriarAnuncio extends Component {
                 </BotaoContainer>
                 <HeaderContainer>
                     <LogoContainer>
-                        <img src={Logo} />
+                        <StyledLogo src={Logo} />
                     </LogoContainer>
                 </HeaderContainer>
                 <TituloAnuncie>Anuncie Aqui:</TituloAnuncie>
@@ -126,9 +133,13 @@ class CriarAnuncio extends Component {
                         <option value="11">11x</option>
                         <option value="12">12x</option>
                     </SelectInput>
-                    <Botao color="primary" variant="contained">Salvar Produto</Botao>
-                </ContainerDeInputs>
-                <Footer />
+                    <Botao color="primary" variant="contained">Salvar Produto</Botao>                    
+                </ContainerDeInputs> 
+
+                <ContainerFooter>
+                    <Footer />
+                </ContainerFooter>     
+                          
             </MuiThemeProvider>
         )
     }
