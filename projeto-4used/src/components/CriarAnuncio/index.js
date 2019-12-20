@@ -109,11 +109,12 @@ class CriarAnuncio extends Component {
         request
           .then(response => {
             alert("criada com sucesso") ;
+            this.props.produtos()
+
           }).catch(error => {
             alert("Não foi criada")
           })
 
-        this.props.produtos()
     
     }
 
@@ -197,7 +198,7 @@ class CriarAnuncio extends Component {
                         <option value="12">12</option>
                     </SelectInput>
           
-                    <Botao color="primary" variant="contained">Salvar Produto</Botao>                    
+                    <Botao color="primary" variant="contained" onClick={this.createNewProduct}>Salvar Produto</Botao>                    
                 </ContainerDeInputs> 
 
                 <ContainerFooter>
