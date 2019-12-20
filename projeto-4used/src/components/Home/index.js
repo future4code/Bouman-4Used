@@ -53,10 +53,7 @@ const StyledText = styled.p`
    font-weight: bold;
 `
 
-class Home extends Component {
-   constructor(props) {
-      super(props)
-   }
+class Home extends Component {   
 
    visitarListaDeProduto = () => {
       this.props.visitarListaDeProduto()

@@ -91,9 +91,7 @@ for (let item of produtos) {
     subTotal += item.quantidadeItem*item.preco
 }
 
-
 export default class Carrinho extends React.Component {
-
     constructor(props){
         super(props)
         this.state = {

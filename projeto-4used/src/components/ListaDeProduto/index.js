@@ -5,12 +5,13 @@ import TextLogo from '../../imagens/nome-marca.png'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
-import { StepLabel } from '@material-ui/core';
 import Footer from '../Footer';
 import Carrinho from '../Carrinho';
 import Produto from '../Produto/index'
 import Filters from '../Filters';
 import DescricaoProduto from '../DescricaoProduto/index'
+import axios from 'axios'
+
 
 
 //STYLE DO HEADER DA PAGINA PRODUTOS //
@@ -67,7 +68,6 @@ const StyledButtonNav = styled.button`
 // FIM DO STYLE DA BARRA DE MENU //
 
 //INICIO DO CONTAINER DO PRODUTO//
-
 const ProdutoGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -76,7 +76,6 @@ const ProdutoGrid = styled.div`
   gap: 10px;
   margin-top: 13px;
 `
-
 // FIM DO STYLE DO CONTAINER //
 
 // STYLE DO CONTAINER QUE TEM O FILTROS-GRID-CARRINHO //
@@ -97,16 +96,13 @@ class ListaDeProduto extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            produtoDestaque: ""
-            
+            produtoDestaque: ""   
         }
     }
 
     visitarCriarAnuncio = () => {
         this.props.visitarCriarAnuncio()
     }
-
-   
 
     destacarProduto = (id) =>{
         let produtoDesejado
@@ -116,7 +112,8 @@ class ListaDeProduto extends React.Component {
             }
         }
         this.setState({produtoDestaque: produtoDesejado })
-    }
+
+
 
     render() {
 
@@ -124,8 +121,8 @@ class ListaDeProduto extends React.Component {
             <MuiThemeProvider theme={usedFourTheme}>
                 <PageContainer>
                     <HeaderContainer>
-                        <img src={ImgLogo}></img>
-                        <img src={TextLogo}></img>
+                        <img src={ImgLogo} alt="logo da empresa" />
+                        <img src={TextLogo} alt="Nome da empresa"/>
                         <RightContainer>
                             <Button
                                 color="primary"

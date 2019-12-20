@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const ProdutoContainer = styled.div`
   width: 40vw;
   height: 40vh;
@@ -13,27 +11,27 @@ const ProdutoContainer = styled.div`
   justify-content: space-between;
   padding: 5px;
   margin: 5px;
-`;
+`
 
 const ProdutoImage = styled.img`
   width: 100%;
   height: 130px;
-`;
+`
 
 const PNome = styled.p`
   align-self: center;
   margin-top: 10px;
-`;
+`
 
 const PValor = styled.p`
   margin: 15px 0px 10px 5px;
-`;
+`
 
 const ProdutoFooterContainer = styled.div`
   width: 100%;
   align-self: flex-end;
   height: 100%;
-`;
+`
 
 const ButtonAdicionarProduto = styled.button`
   align-self: flex-end;
@@ -47,8 +45,7 @@ const ButtonAdicionarProduto = styled.button`
     background-color: #FCCA64;
     color: black;
   }
-`;
-
+`
 
 class Produto extends React.Component {
   constructor(props) {
@@ -58,6 +55,7 @@ class Produto extends React.Component {
 
     }
   }
+
 
   destacarProduto = (e) =>{
     console.log(e.target.id)
@@ -72,6 +70,7 @@ class Produto extends React.Component {
         <PValor>R$ {this.props.preco}</PValor>
         <ProdutoFooterContainer>
           <ButtonAdicionarProduto id={this.props.id} onClick={this.destacarProduto}>Ver Descrição</ButtonAdicionarProduto>
+
         </ProdutoFooterContainer>
       </ProdutoContainer>
     )
