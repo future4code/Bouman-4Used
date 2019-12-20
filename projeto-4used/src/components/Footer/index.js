@@ -76,6 +76,7 @@ const StaffContainer = styled.div`
    grid-template-columns: 1fr 1fr 1fr;
    grid-gap: 20px;
 `
+
 const ImgContainer = styled.div`
 display: flex;
 flex-direction: column;

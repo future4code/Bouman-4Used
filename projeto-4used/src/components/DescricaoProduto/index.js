@@ -38,7 +38,7 @@ const produtos = [
 ] 
 
 const Div = styled.div`
-    text-align:center
+    text-align:center;
 `
 
 export default class DescricaoProduto extends React.Component {
