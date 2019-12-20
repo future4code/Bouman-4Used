@@ -28,9 +28,27 @@ class Filters extends Component {
          minValue: '',
          maxValue: '',
       }
-   }
+   };
 
-   render() {
+   atualizarFiltroMin = (valorMin) => {
+      this.setState({
+        filtroMin: valorMin,
+      })
+    }
+    atualizarFiltroMax = (valorMax) => {
+      this.setState({
+        filtroMax: valorMax,
+      })
+    }
+    
+    onChangeMinValue = event => {
+      this.setState({minValue: event.target.value});
+    };
+    onChangeMaxValue = event => {
+      this.setState({maxValue: event.target.value});
+    };
+
+    render() {
       return (
          <div>
             <StyledH2>Filtros</StyledH2>
@@ -41,7 +59,8 @@ class Filters extends Component {
                   label="Valor Mínimo"
                   type="number"
                   variant="outlined"
-                  color="primary"          
+                  color="primary"  
+                  onChange={this.minValue}
                />
             </StyledFormFilter>
             
@@ -51,7 +70,8 @@ class Filters extends Component {
                   label="Valor Máximo"
                   type="number"
                   variant="outlined"
-                  color="primary"                 
+                  color="primary"
+                  onChange={this.maxValue}                 
                />
             </StyledFormFilter>
 

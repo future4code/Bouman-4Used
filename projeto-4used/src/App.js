@@ -3,6 +3,11 @@ import Home from './components/Home';
 import ListaDeProduto from './components/ListaDeProduto/index';
 import CriarAnuncio from './components/CriarAnuncio';
 import styled from 'styled-components'
+import axios from 'axios';
+
+
+
+const baseURL = "https://us-central1-future-apis.cloudfunctions.net/fourUsed/products"
 
 const produtos = [
   {
@@ -145,7 +150,8 @@ class App extends React.Component {
     this.state ={
       mostrandoHome: true,
       mostrandoListaDeProduto: false,
-      mostrandoCriarAnuncio: false
+      mostrandoCriarAnuncio: false,
+      produtos: [],
     }
   }
 
@@ -165,6 +171,23 @@ class App extends React.Component {
     })
   }
 
+  fetchProduct = () => {
+    const request = axios.get(baseURL);
+    request
+      .then(response => {
+        console.log(response.data.products) ;
+        this.setState({produtos: response.data.products})
+      }).catch(error => {
+        alert(error.message + "Não retornou")
+      })
+    }
+
+  componentDidMount() {
+    this.fetchProduct();
+  }   
+
+
+
   render(){
     return (
       <div className="App">
@@ -178,11 +201,14 @@ class App extends React.Component {
           <ListaDeProduto 
             listaDeProdutos={produtos} 
             visitarCriarAnuncio={this.visitarCriarAnuncio}
+            produtos = {this.state.produtos}
+
           /> 
         )}
         { this.state.mostrandoCriarAnuncio && (
           <CriarAnuncio 
             visitarListaDeProduto={this.visitarListaDeProduto}
+            produtos = {this.fetchProduct}
           /> 
         )}
           

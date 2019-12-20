@@ -97,6 +97,10 @@ class ListaDeProduto extends React.Component {
         this.props.visitarCriarAnuncio()
     }
 
+    componentDidUpdate() {
+        
+    }
+
     render() {
         
         return (
@@ -129,9 +133,9 @@ class ListaDeProduto extends React.Component {
                     <ContainerBodyProduto>
                         <Filters/>
                         <ProdutoGrid>
-                            {this.props.listaDeProdutos.map((cadaProduto) =>{
+                            {this.props.produtos.map((cadaProduto) =>{
                                 return(
-                                    <Produto fotos={cadaProduto.fotos} nome={cadaProduto.nome} preco={cadaProduto.preco}/>
+                                    <Produto fotos={cadaProduto.photos} nome={cadaProduto.name} preco={cadaProduto.price}/>
                                 )
                             })}
                         </ProdutoGrid>
