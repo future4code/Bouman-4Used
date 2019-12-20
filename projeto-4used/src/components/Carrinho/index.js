@@ -12,61 +12,76 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider'
 
-
-
 const ButtonDiv = styled.div`
     text-align: right;
 `
 
-let subTotal = 0;
-
-for (let item of produtos) {
-    subTotal += item.quantidadeItem*item.preco
-}
-
 export default class Carrinho extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            
         }
     }
 
-    render () {
+
+    calcularTotal = () => {
+        let novoSubTotal = 0
+        for (let item of this.props.produtos) {
+            novoSubTotal += item.quantidade * item.price
+        }
+        return novoSubTotal
+    }
+
+    deletarProduto = (e) => {
+        this.props.deletarProduto(e.target.id)
+    }
+
+
+    render() {
         return (
-            <div>               
+            <div>
                 <List component="nav" aria-label="main mailbox folders">
                     <ListItem>
                         <h2>Carrinho</h2>
                     </ListItem>
-                    {produtos.map( produto =>
-                        <ListItem>                                                                  
-                            <Button variant="text" size="small">
-                                <ListItemIcon>
-                                    <AddIcon fontSize="small"/>
-                                </ListItemIcon>    
-                            </Button>                        
-                            <Button variant="text" size="small">
-                                <ListItemIcon fontSize="small">
-                                    <RemoveIcon fontSize="small"/>
-                                </ListItemIcon>  
-                            </Button > 
-                            <ListItemText primary={produto.nome} secondary={`Quantidade: ${produto.quantidadeItem}`} />                            
-                            <ListItemIcon>
-                                <RemoveShoppingCartIcon />
-                            </ListItemIcon>
-                        </ListItem>     
-                    )}    
-                    <Divider/>
+                    {this.props.produtos.map(produto => {
+                        if (produto.quantidade > 0) {
+                            return (
+                                <ListItem>
+                                {/* <Button variant="text" size="small">
+                                    <ListItemIcon>
+                                        <AddIcon fontSize="small" />
+                                    </ListItemIcon>
+                                </Button>
+                                <Button variant="text" size="small" >
+                                    <ListItemIcon fontSize="small" >
+                                        <RemoveIcon fontSize="small" />
+                                    </ListItemIcon>
+                                </Button > */}
+                                <ListItemText primary={produto.name} secondary={`Quantidade: ${produto.quantidade}`} />
+                                <Button onClick={this.deletarProduto} id={produto.id}>
+                                <ListItemIcon id={produto.id}>
+                                    <RemoveShoppingCartIcon id={produto.id}/>
+                                </ListItemIcon>
+                                </Button>
+                            </ListItem>
+                            )
+                            
+                        } else {return}
+
+                    }
+
+                    )}
+                    <Divider />
                     <ListItem>
-                        <ListItemText primary={`Subtotal:  R$ ${subTotal},00`} />
-                    </ListItem>                    
+                        <ListItemText primary={`Subtotal:  R$ ${this.calcularTotal()}`} />
+                    </ListItem>
                 </List>
-                <ButtonDiv>
+                {/* <ButtonDiv>
                     <Fab color="inherit" >
                         <ShoppingCartIcon />
-                    </Fab> 
-                </ButtonDiv>         
+                    </Fab>
+                </ButtonDiv> */}
             </div>
         )
     }
