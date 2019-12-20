@@ -2,10 +2,7 @@ import React from 'react';
 import Home from './components/Home';
 import ListaDeProduto from './components/ListaDeProduto/index';
 import CriarAnuncio from './components/CriarAnuncio';
-import styled from 'styled-components'
 import axios from 'axios';
-
-
 
 const baseURL = "https://us-central1-future-apis.cloudfunctions.net/fourUsed/products"
 
@@ -85,4 +82,3 @@ class App extends React.Component {
 }
 
 export default App;
-//

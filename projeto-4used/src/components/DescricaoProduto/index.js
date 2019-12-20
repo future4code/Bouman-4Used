@@ -12,9 +12,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider'
 
-
 const Div = styled.div`
-    text-align:center
+    text-align:center;
+`
+
+const StyledListItem = styled(ListItem)`
+    display:flex;
+    flex-direction:column;
 `
 
 export default class DescricaoProduto extends React.Component {
@@ -30,30 +34,30 @@ export default class DescricaoProduto extends React.Component {
         return (
             <Div>               
                 <List component="nav">
-                    <ListItem>
-                        <img src={produtos[1].fotos} width="200" />                                                          
-                        <h2>{produtos[1].nome}</h2>                        
-                    </ListItem>
+                    <StyledListItem>
+                        <img src={this.props.produtoDestaque.photos} width="200" />                                                          
+                        <h3>{this.props.produtoDestaque.name}</h3>                        
+                    </StyledListItem>
                     <Divider/>
                     <ListItem>                                                                  
                         <ListItemIcon>
                             <DescriptionIcon/>
                         </ListItemIcon>    
-                        <ListItemText primary={produtos[1].descricao} />                                                    
+                        <ListItemText primary={this.props.produtoDestaque.description} />                                                    
                     </ListItem>
                     <Divider/> 
                     <ListItem>                                                                  
                         <ListItemIcon>
                             <CategoryIcon/>
                         </ListItemIcon>    
-                        <ListItemText primary={produtos[1].categoria} />                                                    
+                        <ListItemText primary={this.props.produtoDestaque.category} />                                                    
                     </ListItem>
                     <Divider/> 
                     <ListItem>                                                                  
                         <ListItemIcon>
                             <LocalOfferIcon/>
                         </ListItemIcon>    
-                        <ListItemText primary={`R$ ${produtos[1].preco},00`} />                                                    
+                        <ListItemText primary={`R$ ${this.props.produtoDestaque.price} `} />                                                    
                     </ListItem> 
                     <Divider/>
                     <ListItem>                                                                  
@@ -61,8 +65,8 @@ export default class DescricaoProduto extends React.Component {
                             <PaymentIcon />
                         </ListItemIcon>    
                         <ListItemText 
-                            primary={produtos[1].metodoDePagamento} 
-                            secondary={`Em ${produtos[1].parcelas} parcela(s)`} 
+                            primary={this.props.produtoDestaque.paymentMethod} 
+                            secondary={`Em ${this.props.produtoDestaque.installments}  parcela(s)`} 
                         />                                                    
                     </ListItem> 
                     <Divider/> 
