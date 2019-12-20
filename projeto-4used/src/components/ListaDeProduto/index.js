@@ -9,7 +9,9 @@ import Footer from '../Footer';
 import Carrinho from '../Carrinho';
 import Produto from '../Produto/index'
 import Filters from '../Filters';
+import DescricaoProduto from '../DescricaoProduto/index'
 import axios from 'axios'
+
 
 
 //STYLE DO HEADER DA PAGINA PRODUTOS //
@@ -83,11 +85,18 @@ const ContainerBodyProduto = styled.div`
 `
 // FIM DO STYLE DO CONTAINER QUE TEM O FILTROS-GRID-CARRINHO //
 
+//STYLE DO CONTAINER A ESQUERDA 
+
+const ContainerLeft = styled.div`
+display: flex; 
+flex-direction: column;
+`
+
 class ListaDeProduto extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            produtoDestaque: ""   
         }
     }
 
@@ -95,11 +104,19 @@ class ListaDeProduto extends React.Component {
         this.props.visitarCriarAnuncio()
     }
 
-    componentDidUpdate() {        
-    }
+    destacarProduto = (id) =>{
+        let produtoDesejado
+        for(let produto of this.props.produtos){
+            if(produto.id === id  ){
+                produtoDesejado = produto
+            }
+        }
+        this.setState({produtoDestaque: produtoDesejado })
+
+
 
     render() {
-        
+
         return (
             <MuiThemeProvider theme={usedFourTheme}>
                 <PageContainer>
@@ -107,8 +124,8 @@ class ListaDeProduto extends React.Component {
                         <img src={ImgLogo} alt="logo da empresa" />
                         <img src={TextLogo} alt="Nome da empresa"/>
                         <RightContainer>
-                            <Button 
-                                color="primary" 
+                            <Button
+                                color="primary"
                                 variant="contained"
                                 onClick={this.visitarCriarAnuncio}
                             >
@@ -128,16 +145,20 @@ class ListaDeProduto extends React.Component {
                         </StyledMenuBar>
                     </StyledNav>
                     <ContainerBodyProduto>
-                        <Filters/>
+                        <ContainerLeft>
+                            <Filters />
+                            {this.state.produtoDestaque ?<DescricaoProduto produtoDestaque={this.state.produtoDestaque} /> : "Nenhum Produto Selecionado"}
+                        </ContainerLeft>
+
                         <ProdutoGrid>
-                            {this.props.produtos.map((cadaProduto) =>{
-                                return(
-                                    <Produto fotos={cadaProduto.photos} nome={cadaProduto.name} preco={cadaProduto.price}/>
+                            {this.props.produtos.map((cadaProduto) => {
+                                return (
+                                    <Produto fotos={cadaProduto.photos} nome={cadaProduto.name} preco={cadaProduto.price} destacarProduto={this.destacarProduto} id={cadaProduto.id} />
                                 )
                             })}
                         </ProdutoGrid>
-                        <Carrinho/>
-                    </ContainerBodyProduto>                  
+                        <Carrinho />
+                    </ContainerBodyProduto>
 
                     <Footer />
                 </PageContainer>

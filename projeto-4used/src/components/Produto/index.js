@@ -56,14 +56,21 @@ class Produto extends React.Component {
     }
   }
 
+
+  destacarProduto = (e) =>{
+    console.log(e.target.id)
+    this.props.destacarProduto(e.target.id)
+  }
+
   render() {
     return (
       <ProdutoContainer>
         <ProdutoImage src={this.props.fotos} />
         <PNome>{this.props.nome}</PNome>
-        <PValor>R$ {this.props.preco},00</PValor>
+        <PValor>R$ {this.props.preco}</PValor>
         <ProdutoFooterContainer>
-          <ButtonAdicionarProduto>Adicionar Item</ButtonAdicionarProduto>
+          <ButtonAdicionarProduto id={this.props.id} onClick={this.destacarProduto}>Ver Descrição</ButtonAdicionarProduto>
+
         </ProdutoFooterContainer>
       </ProdutoContainer>
     )
