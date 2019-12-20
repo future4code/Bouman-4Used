@@ -8,7 +8,6 @@ import Select from '@material-ui/core/Select';
 import Footer from '../Footer/index'
 import axios from "axios";
 
-
 const baseURL = "https://us-central1-future-apis.cloudfunctions.net/fourUsed/products"
 
 const usedFourTheme = createMuiTheme({
@@ -101,8 +100,7 @@ class CriarAnuncio extends Component {
             paymentMethod: this.state.paymentMethodProduct,
             category: this.state.categoryProduct,
             photos: this.state.photosProduct,
-            installments: this.state.installmentsProduct
-            
+            installments: this.state.installmentsProduct,            
         };
 
         const request = axios.post(url, data);
@@ -114,8 +112,6 @@ class CriarAnuncio extends Component {
           }).catch(error => {
             alert("Não foi criada")
           })
-
-    
     }
 
     onChangeName = event => {
@@ -140,8 +136,6 @@ class CriarAnuncio extends Component {
         this.setState({installmentsProduct: event.target.value});
       }; 
 
-
-
     render() {
         return (
             <MuiThemeProvider theme={usedFourTheme}>
@@ -156,13 +150,13 @@ class CriarAnuncio extends Component {
                 </BotaoContainer>
                 <HeaderContainer>
                     <LogoContainer>
-                        <StyledLogo src={Logo} />
+                        <StyledLogo src={Logo} alt="logo da empresa"/>
                     </LogoContainer>
                 </HeaderContainer>
                 <TituloAnuncie>Anuncie Aqui:</TituloAnuncie>
                 <ContainerDeInputs>
-                    <SelectInput native defaultValue="selecione" value={this.state.categoryProduct} onChange={this.onChangeCategory} >
-                        <option value="selecione">Selecione uma Categoria</option>
+                    <SelectInput native value={this.state.categoryProduct} onChange={this.onChangeCategory} >
+                        <option>Selecione uma Categoria</option>
                         <option value="eletronico">Eletronicos</option>
                         <option value="roupas">Roupas</option>
                         <option value="cosmesticos"> Cosmésticos</option>
@@ -175,11 +169,10 @@ class CriarAnuncio extends Component {
                     <Input id="outlined-basic" variant="outlined" placeholder="Url da Foto" value={this.state.photosProduct} onChange={this.onChangePhoto}></Input>
                     <Input id="outlined-basic" variant="outlined" placeholder="Preço" type="number" value={this.state.priceProduct} onChange={this.onChangePrice}></Input>
 
-                    <SelectInput native defaultValue="selecione" value={this.state.paymentMethodProduct} onChange={this.onChangeMethod}>
-                        <option value="selecione">Método de Pagamento</option>
+                    <SelectInput native value={this.state.paymentMethodProduct} onChange={this.onChangeMethod}>
+                        <option> Método de Pagamento</option>
                         <option value="boleto">Boleto</option>
                         <option value="cartao">Cartão de Crédito</option>
-
                     </SelectInput>
 
                     <SelectInput native defaultValue="selecione" value={this.state.installmentsProduct} onChange={this.onChangeInstallments}>

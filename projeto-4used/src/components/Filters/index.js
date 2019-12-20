@@ -77,10 +77,9 @@ class Filters extends Component {
 
             <StyledFormFilter>
                <StyledFilterSeletor native defaultValue='selecione'>
-                  <option value="selecione">Selecione uma opção</option>
+                  <option>Selecione uma opção</option>
                   <option value="Nome">Nome</option>
                   <option value="Preço">Preço</option>
-                  <option value="Categoria">Categoria</option>
                </StyledFilterSeletor>
             </StyledFormFilter>
          </div>
